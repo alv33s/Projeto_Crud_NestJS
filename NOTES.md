@@ -1,5 +1,9 @@
 # Integrantes
-Felipe Alves, Felipe Marinho, Arthur Oliveira, Douglas dos Santos e Enzo Freitas
+- Douglas dos Santos - uc23100992
+- Felipe Alves Muniz - uc23101331
+- Felipe Marinho - uc23101075
+- Arthur Oliveira - uc23101199
+- Enzo Freitas Lima - Uc23102171
 
 # Introdução
 Esse projeto foi criado com a intuição de crirar APIs com cruds de 3 entidades(estudante, cidade e uf)
