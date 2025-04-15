@@ -1,7 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { UfService } from './uf.service';
 import { CreateUfDto } from './dto/create-uf.dto';
 import { UpdateUfDto } from './dto/update-uf.dto';
+import { HttpCode } from '@nestjs/common/decorators/http/http-code.decorator';
+import { NotFoundException } from '@nestjs/common/exceptions/not-found.exception';
+
+
 
 @Controller('uf')
 export class UfController {
@@ -18,17 +30,23 @@ export class UfController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.ufService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const uf = await this.ufService.findOne(+id);
+    if (!uf) throw new NotFoundException();
+    return uf;
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUfDto: UpdateUfDto) {
-    return this.ufService.update(+id, updateUfDto);
+  async update(@Param('id') id: string, @Body() updateUfDto: UpdateUfDto){
+    const uf = await this.ufService.update(+id, updateUfDto);
+    if (!uf) throw new NotFoundException();
+    return uf;
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.ufService.remove(+id);
+  @HttpCode(204)
+  async remove(@Param('id') id: string) {
+    const uf = await this.ufService.remove(+id);
+    if (!uf) throw new NotFoundException();
   }
 }

@@ -1,0 +1,91 @@
+################################################
+### UF
+
+### UF - Criar
+POST http://localhost:3000/uf
+Content-Type: application/json
+
+{
+  "sigla": "SP",
+  "nome": "São Paulo"
+}
+
+### UF - Listar todas
+GET http://localhost:3000/uf
+
+### UF - Buscar por ID
+GET http://localhost:3000/uf/10
+
+### UF - Atualizar
+PATCH http://localhost:3000/uf/11
+Content-Type: application/json
+
+{
+  "nome": "São Paulo Atualizado"
+}
+
+### UF - Deletar
+DELETE http://localhost:3000/uf/10
+
+
+################################################
+### CIDADE
+
+### CIDADE - Criar
+POST http://localhost:3000/cidade
+Content-Type: application/json
+
+{
+  "nome": "Campinas",
+  "ufId": 11
+}
+
+### CIDADE - Listar todas
+GET http://localhost:3000/cidade
+
+### CIDADE - Buscar por ID
+GET http://localhost:3000/cidade/6
+
+### CIDADE - Atualizar
+PATCH http://localhost:3000/cidade/6
+Content-Type: application/json
+
+{
+  "nome": "Brasília Atualizada"
+}
+
+### CIDADE - Deletar
+DELETE http://localhost:3000/cidade/6
+
+
+################################################
+### ESTUDANTE
+
+### ESTUDANTE - Criar
+POST http://localhost:3000/estudante
+Content-Type: application/json
+
+{
+  "nome": "Lucas",
+  "matricula": "20252332",
+  "email": "lucas@email.com",
+  "dt_nascimento": "2003-05-20",
+  "cidadeId": 6
+}
+
+### ESTUDANTE - Listar todos
+GET http://localhost:3000/estudante
+
+### ESTUDANTE - Buscar por ID
+GET http://localhost:3000/estudante/6
+
+### ESTUDANTE - Atualizar
+PATCH http://localhost:3000/estudante/6
+Content-Type: application/json
+
+{
+  "nome": "Lucas Atualizado"
+}
+
+### ESTUDANTE - Deletar
+DELETE http://localhost:3000/estudante/6
